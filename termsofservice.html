@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Melodex - Terms & Privacy</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: white;
+}
+
+header {
+  text-align: center;
+  padding: 40px;
+  font-size: 2.5rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
+
+.section {
+  background: rgba(255,255,255,0.05);
+  padding: 25px;
+  margin: 20px 0;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease;
+}
+
+.section:hover {
+  transform: translateY(-5px);
+}
+
+h2 {
+  border-bottom: 2px solid rgba(255,255,255,0.2);
+  padding-bottom: 10px;
+}
+
+button {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 10px;
+  background: #22c55e;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #16a34a;
+}
+
+/* Cookie Popup */
+.cookie-popup {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #020617;
+  padding: 20px;
+  border-radius: 15px;
+  display: none;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  max-width: 400px;
+  text-align: center;
+}
+
+.cookie-popup.show {
+  display: block;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(20px);} 
+  to { opacity: 1; transform: translateX(-50%) translateY(0);} 
+}
+
+</style>
+</head>
+<body>
+
+<header>🎧 Melodex</header>
+
+<div class="container">
+
+<div class="section">
+<h2>Terms of Service</h2>
+<p>By using Melodex, you agree to use the platform responsibly. You may upload and play music for personal use only.</p>
+<ul>
+<li>You must own or have permission to upload files</li>
+<li>No illegal or harmful content</li>
+<li>No attempts to break or exploit the system</li>
+</ul>
+<p>Melodex is provided "as is" with no guarantees of uptime or data safety.</p>
+</div>
+
+<div class="section">
+<h2>Privacy Policy</h2>
+<p>Melodex respects your privacy.</p>
+<ul>
+<li>Your uploaded songs stay private</li>
+<li>We may store basic usage data</li>
+<li>Cookies are used for functionality</li>
+</ul>
+<p>We do not sell your data to anyone.</p>
+</div>
+
+<div class="section">
+<h2>Disclaimer</h2>
+<p>Some systems may flag downloads or files. Melodex is not responsible for such warnings.</p>
+</div>
+
+<button onclick="goBack()">Go Back</button>
+
+</div>
+
+<!-- Cookie Popup -->
+<div class="cookie-popup" id="cookiePopup">
+  <p>This site uses cookies to improve your experience.</p>
+  <button onclick="acceptCookies()">Accept</button>
+</div>
+
+<script>
+function goBack() {
+  window.location.href = "index.html";
+}
+
+function acceptCookies() {
+  localStorage.setItem("cookiesAccepted", "true");
+  document.getElementById("cookiePopup").classList.remove("show");
+}
+
+window.onload = function() {
+  if (!localStorage.getItem("cookiesAccepted")) {
+    document.getElementById("cookiePopup").classList.add("show");
+  }
+};
+</script>
+
+</body>
+</html>
