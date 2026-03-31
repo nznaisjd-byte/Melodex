@@ -342,6 +342,128 @@ canvas{display:block;width:100%;height:52px}
 .toast{position:fixed;bottom:calc(var(--ph) + 16px);left:50%;transform:translateX(-50%) translateY(12px);background:var(--bg3);border:1px solid var(--bg4);border-radius:99px;padding:11px 22px;font-size:13px;z-index:900;opacity:0;pointer-events:none;transition:all .3s;white-space:nowrap}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 body.drag-over{outline:3px dashed var(--acc);outline-offset:-16px}
+
+/* ═══════════ AD OVERLAY ═══════════ */
+#ad-overlay{
+  position:fixed;inset:0;z-index:99999;
+  background:rgba(6,6,16,.96);
+  backdrop-filter:blur(18px);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;
+  transition:opacity .4s;
+}
+#ad-overlay.show{opacity:1;pointer-events:all}
+.ad-box{
+  background:linear-gradient(145deg,#0e0e22,#16162e);
+  border:1.5px solid #2a2a48;
+  border-radius:24px;
+  padding:36px 40px;
+  max-width:500px;width:92vw;
+  text-align:center;
+  box-shadow:0 40px 100px rgba(0,0,0,.8);
+  transform:scale(.92);
+  transition:transform .45s cubic-bezier(.34,1.56,.64,1);
+}
+#ad-overlay.show .ad-box{transform:scale(1)}
+.ad-sponsor{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#555580;margin-bottom:18px}
+.ad-art{width:90px;height:90px;border-radius:18px;background:linear-gradient(135deg,#1a2a08,#2a4010);display:flex;align-items:center;justify-content:center;font-size:40px;margin:0 auto 20px;box-shadow:0 8px 30px rgba(0,0,0,.5)}
+.ad-title{font-family:'Syne',sans-serif;font-weight:800;font-size:22px;color:#f0f0f8;margin-bottom:6px}
+.ad-subtitle{font-size:14px;color:#7a7a9a;margin-bottom:22px;line-height:1.55}
+.ad-link{
+  display:inline-block;
+  background:var(--acc,#a8ff3e);color:#06060e;
+  border-radius:99px;padding:12px 28px;
+  font-family:'Syne',sans-serif;font-weight:700;font-size:14px;
+  text-decoration:none;
+  transition:all .18s ease;
+  margin-bottom:22px;
+}
+.ad-link:hover{background:#c4ff5a;transform:scale(1.04)}
+.ad-progress-wrap{margin-top:4px}
+.ad-progress-bar{height:4px;background:#1e1e38;border-radius:9px;overflow:hidden;margin-bottom:8px}
+.ad-progress-fill{height:100%;background:linear-gradient(90deg,var(--acc,#a8ff3e),#6fff00);border-radius:9px;width:0%;transition:width 1s linear}
+.ad-timer{font-size:12px;color:#555580;font-variant-numeric:tabular-nums}
+.ad-skip{margin-top:14px;font-size:12px;color:#3a3a58;cursor:default;user-select:none}
+.ad-skip.ready{color:#7a7a9a;cursor:pointer;text-decoration:underline}
+.ad-skip.ready:hover{color:#a8ff3e}
+.ad-playing-row{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:14px;font-size:13px;color:#6a6a8a}
+.ad-eq{display:flex;align-items:flex-end;gap:2px;height:14px}
+.ad-eq div{width:3px;background:var(--acc,#a8ff3e);border-radius:2px}
+.ad-eq div:nth-child(1){animation:e1 .8s ease-in-out infinite}
+.ad-eq div:nth-child(2){animation:e2 .6s ease-in-out infinite}
+.ad-eq div:nth-child(3){animation:e3 .7s ease-in-out infinite}
+
+
+/* ═══════════ AD OVERLAY ═══════════ */
+#ad-overlay{position:fixed;inset:0;z-index:99999;background:rgba(4,4,14,.96);backdrop-filter:blur(20px);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .4s}
+#ad-overlay.show{opacity:1;pointer-events:all}
+.ad-box{background:linear-gradient(145deg,#0d0d22,#151530);border:1.5px solid #2c2c50;border-radius:24px;padding:34px 38px;max-width:480px;width:92vw;text-align:center;box-shadow:0 40px 100px rgba(0,0,0,.9);transform:scale(.9);transition:transform .45s cubic-bezier(.34,1.56,.64,1)}
+#ad-overlay.show .ad-box{transform:scale(1)}
+.ad-sponsor-tag{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#555577;margin-bottom:18px}
+.ad-art{font-size:56px;margin-bottom:14px;filter:drop-shadow(0 6px 18px rgba(168,255,62,.3));animation:adpulse 2s ease-in-out infinite}
+@keyframes adpulse{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
+.ad-title{font-family:var(--ff,'Syne',sans-serif);font-weight:800;font-size:22px;color:#eeeef8;margin-bottom:6px}
+.ad-subtitle{font-size:13px;color:#7070a0;line-height:1.55;margin-bottom:16px}
+.ad-link{display:inline-block;background:rgba(168,255,62,.12);border:1.5px solid rgba(168,255,62,.35);border-radius:10px;padding:10px 22px;color:#a8ff3e;font-weight:700;font-size:13.5px;text-decoration:none;transition:all .2s;margin-bottom:18px}
+.ad-link:hover{background:rgba(168,255,62,.22);border-color:#a8ff3e;transform:scale(1.03)}
+.ad-playing-row{display:flex;align-items:center;justify-content:center;gap:9px;font-size:12px;color:#666688;margin-bottom:14px}
+.ad-eq{display:flex;align-items:flex-end;gap:2px;height:14px}
+.ad-eq div{width:3px;border-radius:2px;background:#a8ff3e}
+.ad-eq div:nth-child(1){animation:eq1 .8s ease-in-out infinite}
+.ad-eq div:nth-child(2){animation:eq2 .6s ease-in-out infinite}
+.ad-eq div:nth-child(3){animation:eq3 .7s ease-in-out infinite}
+.ad-progress-wrap{margin-bottom:16px}
+.ad-progress-bar{height:5px;background:#1a1a3a;border-radius:9px;overflow:hidden;margin-bottom:7px}
+.ad-progress-fill{height:100%;background:linear-gradient(90deg,#a8ff3e,#6fff00);border-radius:9px;width:0;transition:width .4s linear}
+.ad-timer-label{font-size:12px;color:#55557a}
+.ad-skip{display:block;width:100%;margin-top:4px;padding:11px;border-radius:10px;font-size:13px;font-weight:600;border:1.5px solid #2c2c50;background:transparent;color:#55557a;cursor:not-allowed;transition:all .2s;font-family:inherit}
+.ad-skip.ready{border-color:#a8ff3e;color:#a8ff3e;cursor:pointer;background:rgba(168,255,62,.08)}
+.ad-skip.ready:hover{background:rgba(168,255,62,.18);transform:scale(1.02)}
+.ad-skip.locked{opacity:.6}
+
+/* ═══════ AD OVERLAY ═══════ */
+#ad-overlay{position:fixed;inset:0;z-index:10000;background:rgba(6,6,14,.96);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .4s}
+#ad-overlay.show{opacity:1;pointer-events:all}
+.ad-box{background:var(--bg1);border:2px solid var(--bg4);border-radius:22px;width:520px;max-width:calc(100vw - 32px);overflow:hidden;box-shadow:0 30px 90px rgba(0,0,0,.8);transform:scale(.94);transition:transform .4s cubic-bezier(.34,1.56,.64,1)}
+#ad-overlay.show .ad-box{transform:scale(1)}
+.ad-header{background:linear-gradient(135deg,#1a1a2e,#0d0d1c);padding:14px 20px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--bg4)}
+.ad-label{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--tx3);display:flex;align-items:center;gap:6px}
+.ad-dot{width:7px;height:7px;border-radius:50%;background:#ff9900;animation:adpulse 1.5s ease-in-out infinite}
+@keyframes adpulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.85)}}
+.ad-timer-wrap{display:flex;align-items:center;gap:8px}
+.ad-timer-ring{width:36px;height:36px;position:relative;flex-shrink:0}
+.ad-timer-ring svg{transform:rotate(-90deg);width:36px;height:36px}
+.ad-timer-ring circle{fill:none;stroke:var(--bg4);stroke-width:3}
+.ad-timer-ring .prog{stroke:var(--acc);stroke-width:3;stroke-linecap:round;stroke-dasharray:94.25;stroke-dashoffset:0;transition:stroke-dashoffset 1s linear}
+.ad-timer-num{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--ff);font-weight:800;font-size:13px;color:var(--acc)}
+.ad-body{padding:28px 28px 22px;display:flex;flex-direction:column;align-items:center;gap:18px;text-align:center}
+.ad-brand{width:64px;height:64px;border-radius:14px;background:linear-gradient(135deg,#1a2a0a,#0d1a03);border:1.5px solid rgba(168,255,62,.25);display:flex;align-items:center;justify-content:center;font-size:28px;animation:brandBob 2.5s ease-in-out infinite}
+@keyframes brandBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+.ad-now-playing{background:var(--bg2);border:1px solid var(--bg3);border-radius:99px;padding:7px 16px;display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--tx2)}
+.ad-now-playing svg{width:13px;color:var(--acc);flex-shrink:0;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.ad-title{font-family:var(--ff);font-size:22px;font-weight:800;line-height:1.25}
+.ad-title span{color:var(--acc)}
+.ad-subtitle{font-size:14px;color:var(--tx2);line-height:1.6;max-width:360px}
+.ad-cta{display:flex;align-items:center;gap:8px;background:var(--acc);color:#06060e;border:none;border-radius:99px;padding:12px 26px;font-family:var(--ff);font-weight:700;font-size:14px;cursor:pointer;text-decoration:none;transition:all .2s ease}
+.ad-cta:hover{background:var(--acc2);transform:scale(1.04)}
+.ad-cta svg{width:14px}
+.ad-wave{display:flex;align-items:flex-end;gap:3px;height:24px;margin-top:4px}
+.ad-wave div{width:4px;background:rgba(168,255,62,.4);border-radius:2px}
+.ad-wave div:nth-child(1){animation:w1 .6s ease-in-out infinite}
+.ad-wave div:nth-child(2){animation:w2 .5s ease-in-out infinite}
+.ad-wave div:nth-child(3){animation:w3 .7s ease-in-out infinite}
+.ad-wave div:nth-child(4){animation:w2 .6s ease-in-out infinite}
+.ad-wave div:nth-child(5){animation:w1 .5s ease-in-out infinite}
+@keyframes w1{0%,100%{height:4px}50%{height:18px}}
+@keyframes w2{0%,100%{height:12px}50%{height:5px}}
+@keyframes w3{0%,100%{height:8px}50%{height:22px}}
+.ad-footer{padding:12px 20px;background:var(--bg2);border-top:1px solid var(--bg3);display:flex;align-items:center;justify-content:space-between;font-size:11.5px;color:var(--tx3)}
+.ad-skip-btn{background:none;border:1px solid var(--bg4);border-radius:6px;padding:5px 12px;color:var(--tx3);font-size:11px;cursor:not-allowed;font-family:inherit;transition:all .2s}
+.ad-skip-btn.ready{cursor:pointer;border-color:var(--tx2);color:var(--tx2)}
+.ad-skip-btn.ready:hover{border-color:var(--acc);color:var(--acc)}
+.ad-waveform{width:100%;height:32px;background:var(--bg3);border-radius:8px;position:relative;overflow:hidden;margin-top:6px}
+.ad-waveform-fill{height:100%;background:linear-gradient(90deg,var(--acc),rgba(168,255,62,.3));width:0;border-radius:8px;transition:width 1s linear}
 </style>
 </head>
 <body>
@@ -353,7 +475,7 @@ body.drag-over{outline:3px dashed var(--acc);outline-offset:-16px}
       <div class="ck-emoji">&#127850;</div>
       <div>
         <div class="ck-title">We use cookies (the tasty kind)</div>
-        <div class="ck-text">Melodex stores your playlists, preferences and listening stats entirely on your device. Nothing leaves your browser — these cookies just help us remember your vibe. <a href="#">Privacy Policy</a></div>
+        <div class="ck-text">Melodex stores your playlists, preferences and listening stats entirely on your device. Nothing leaves your browser — these cookies just help us remember your vibe. <a href="#">Privacy Policy</a> · <a href="termsofservice.html">Terms of Service</a></div>
       </div>
     </div>
     <div class="ck-toggles">
@@ -624,6 +746,7 @@ let curView='library',curPLId=null,ctxIdx=-1,editIdx=-1;
 let sleepInterval=null,sleepEnd=0,crossfadeSec=0,cfTimer=null;
 let audioCtx=null,analyser=null,srcNode=null,eqFilters=[];
 let visOn=false,songURLs={},lyrLines=[],lyrInterval=null;
+let adFirstPlay=true;
 const AUD=document.getElementById('audio-el');
 const CANVAS=document.getElementById('vis-canvas');
 const C2D=CANVAS.getContext('2d');
@@ -685,7 +808,18 @@ function startLyricsKaraoke(){if(lyrInterval)clearInterval(lyrInterval);if(curId
 function buildQueue(si,list){queue=[...list];queuePos=si;if(shuffleOn)shuffleQ(si);}
 function shuffleQ(keep){const c=queue[keep];const r=queue.filter((_,i)=>i!==keep);for(let i=r.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[r[i],r[j]]=[r[j],r[i]];}queue=[c,...r];queuePos=0;}
 function playSong(id,list){const L=list||getVisSongs();const i=L.findIndex(s=>s.id===id);if(i<0)return;buildQueue(i,L);loadPlay(queue[queuePos]);}
-function loadPlay(song){if(!song)return;if(!songURLs[song.id]){toast('Re-upload this file to play it');return;}if(audioCtx&&audioCtx.state==='suspended')audioCtx.resume();if(!srcNode)connectSrc();AUD.src=songURLs[song.id];AUD.playbackRate=speed;AUD.play().catch(()=>{});isPlaying=true;curIdx=songs.findIndex(s=>s.id===song.id);playCounts[song.id]=(playCounts[song.id]||0)+1;recentPlays=recentPlays.filter(id=>id!==song.id);recentPlays.unshift(song.id);saveData();updNP(song);updPlayBtn();renderView();renderQList();schedCF();if(document.getElementById('lyrics-panel').classList.contains('open'))openLyrics();}
+let adPendingSong = null;
+function loadPlay(song){
+  if(!song)return;
+  if(adFirstPlay){
+    adFirstPlay=false;
+    adPendingSong=song;
+    setTimeout(showAd,200);
+    return;
+  }
+  _realLoadPlay(song);
+}
+function _realLoadPlay(song){if(!song)return;if(!songURLs[song.id]){toast('Re-upload this file to play it');return;}if(audioCtx&&audioCtx.state==='suspended')audioCtx.resume();if(!srcNode)connectSrc();AUD.src=songURLs[song.id];AUD.playbackRate=speed;AUD.play().catch(()=>{});isPlaying=true;curIdx=songs.findIndex(s=>s.id===song.id);playCounts[song.id]=(playCounts[song.id]||0)+1;recentPlays=recentPlays.filter(id=>id!==song.id);recentPlays.unshift(song.id);saveData();updNP(song);updPlayBtn();renderView();renderQList();schedCF();if(document.getElementById('lyrics-panel').classList.contains('open'))openLyrics();}
 function togglePlay(){if(!AUD.src)return;if(isPlaying){AUD.pause();isPlaying=false;}else{AUD.play();isPlaying=true;}updPlayBtn();}
 function nextSong(){if(cfTimer){clearTimeout(cfTimer);cfTimer=null;}if(repeatMode==='one'){AUD.currentTime=0;AUD.play();return;}if(queuePos<queue.length-1){queuePos++;loadPlay(queue[queuePos]);}else if(repeatMode==='all'&&queue.length>0){queuePos=0;loadPlay(queue[0]);}else{isPlaying=false;updPlayBtn();}}
 function prevSong(){if(AUD.currentTime>3){AUD.currentTime=0;return;}if(queuePos>0){queuePos--;loadPlay(queue[queuePos]);}else AUD.currentTime=0;}
@@ -815,6 +949,195 @@ renderSB();
 renderView();
 drawVis();
 if(document.documentElement.hasAttribute('data-light'))document.getElementById('theme-lbl').textContent='Light Mode';
+
+// ═══════════ AD SYSTEM ═══════════
+const AD_SITE        = 'https://edutweakss.neocities.org';
+const AD_FOLDER      = './Ads/';
+const AD_DURATION    = 15;
+const AD_INTERVAL_MS = 15 * 60 * 1000;
+
+let adIsPlaying  = false;
+let adTimerInt   = null;
+let adSchedule   = null;
+let adRemaining  = AD_DURATION;
+let adFileCache  = null; // array of {name, url} once loaded
+
+// ── Scan ./Ads/ folder for audio files ──────────────────────
+async function scanAdsFolder() {
+  if (adFileCache) return adFileCache;
+  try {
+    const r = await fetch(AD_FOLDER);
+    if (r.ok) {
+      const html = await r.text();
+      const doc  = new DOMParser().parseFromString(html, 'text/html');
+      const links = [...doc.querySelectorAll('a[href]')]
+        .map(a => a.getAttribute('href'))
+        .filter(h => h && /\.(mp3|wav|ogg|m4a|aac|flac)$/i.test(h));
+      if (links.length) {
+        adFileCache = links.map(h => {
+          const raw  = decodeURIComponent(h.split('/').pop());
+          const name = raw.replace(/\.[^.]+$/, '');
+          const url  = AD_FOLDER + raw;
+          return { name, url };
+        });
+        return adFileCache;
+      }
+    }
+  } catch(_) {}
+  // Fallback: common names the user might have placed in ./Ads/
+  adFileCache = [
+    { name: 'EduTweakss', url: AD_FOLDER + 'EduTweakss.mp3' },
+  ];
+  return adFileCache;
+}
+
+function pickRandom(arr) {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
+
+// ── Show the ad overlay ──────────────────────────────────────
+async function showAd() {
+  if (adIsPlaying) return;
+  adIsPlaying = true;
+
+  // Pause music
+  const wasPlaying = isPlaying;
+  if (wasPlaying) { AUD.pause(); }
+
+  // Pick a random ad file
+  const files = await scanAdsFolder();
+  const file  = pickRandom(files);
+
+  // Fill in overlay UI
+  document.getElementById('ad-track-name').textContent = file.name;
+  document.getElementById('ad-ring').style.strokeDashoffset = '0';
+  document.getElementById('ad-wave-fill').style.width = '0%';
+  adRemaining = AD_DURATION;
+  document.getElementById('ad-num').textContent = adRemaining;
+  const skipBtn = document.getElementById('ad-skip-btn');
+  skipBtn.disabled = true;
+  skipBtn.classList.remove('ready');
+  skipBtn.textContent = 'Skip in ' + adRemaining + 's';
+  document.getElementById('ad-skip-count').textContent = adRemaining;
+
+  // Show overlay
+  document.getElementById('ad-overlay').classList.add('show');
+
+  // Play ad audio
+  const adAudio = document.getElementById('ad-audio');
+  adAudio.pause();
+  adAudio.currentTime = 0;
+  adAudio.src = file.url;
+  adAudio.volume = 1;
+  adAudio.play().catch(() => {});
+
+  // Countdown
+  clearInterval(adTimerInt);
+  adTimerInt = setInterval(() => {
+    adRemaining = Math.max(0, adRemaining - 1);
+    document.getElementById('ad-num').textContent = adRemaining;
+    document.getElementById('ad-skip-count').textContent = adRemaining;
+    // SVG ring: circumference = 2 * pi * 15 ≈ 94.25
+    const filled = ((AD_DURATION - adRemaining) / AD_DURATION) * 94.25;
+    document.getElementById('ad-ring').style.strokeDashoffset = filled;
+    document.getElementById('ad-wave-fill').style.width = ((AD_DURATION - adRemaining) / AD_DURATION * 100) + '%';
+
+    if (adRemaining <= 5) {
+      skipBtn.disabled = false;
+      skipBtn.classList.add('ready');
+      skipBtn.textContent = 'Skip Ad ✕';
+    }
+    if (adRemaining <= 0) {
+      clearInterval(adTimerInt);
+      finishAd(wasPlaying);
+    }
+  }, 1000);
+
+  // Also finish when audio track ends naturally (before countdown)
+  adAudio.onended = () => {
+    if (adRemaining > 0) {
+      skipBtn.disabled = false;
+      skipBtn.classList.add('ready');
+      skipBtn.textContent = 'Skip Ad ✕';
+    }
+  };
+}
+
+function skipAd() {
+  const btn = document.getElementById('ad-skip-btn');
+  if (btn.disabled) return;
+  clearInterval(adTimerInt);
+  finishAd(isPlaying || (AUD.src && !isPlaying));
+}
+
+function finishAd(resumeMusic) {
+  clearInterval(adTimerInt);
+  adIsPlaying = false;
+  const adAudio = document.getElementById('ad-audio');
+  adAudio.pause();
+  adAudio.currentTime = 0;
+  document.getElementById('ad-overlay').classList.remove('show');
+  // If a song was queued before the ad, play it now
+  if (adPendingSong) {
+    const s = adPendingSong;
+    adPendingSong = null;
+    _realLoadPlay(s);
+  } else if (resumeMusic && AUD.src) {
+    AUD.play().catch(() => {});
+    isPlaying = true;
+    updPlayBtn();
+  }
+  // Schedule next ad in 15 minutes
+  scheduleNextAd();
+}
+
+function scheduleNextAd() {
+  clearTimeout(adSchedule);
+  adSchedule = setTimeout(() => {
+    if (!adIsPlaying) showAd();
+  }, AD_INTERVAL_MS);
+}
+
+// Start 15-min loop on page load
+scheduleNextAd();
 </script>
+
+<!-- ═══════════ AD OVERLAY ═══════════ -->
+<div id="ad-overlay">
+  <div class="ad-box">
+    <div class="ad-header">
+      <div class="ad-label"><div class="ad-dot"></div>Advertisement</div>
+      <div class="ad-timer-wrap">
+        <div class="ad-timer-ring">
+          <svg viewBox="0 0 36 36">
+            <circle cx="18" cy="18" r="15"/>
+            <circle class="prog" id="ad-ring" cx="18" cy="18" r="15"/>
+          </svg>
+          <div class="ad-timer-num" id="ad-num">15</div>
+        </div>
+      </div>
+    </div>
+    <div class="ad-body">
+      <div class="ad-brand">🎓</div>
+      <div class="ad-now-playing" id="ad-np-row">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46C19.54 15.03 20 13.57 20 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 7.74C4.46 8.97 4 10.43 4 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3z"/></svg>
+        <span id="ad-track-name">Loading ad…</span>
+      </div>
+      <div class="ad-title">Check out <span>EduTweakss</span></div>
+      <div class="ad-subtitle">Tips, tricks &amp; resources for students and learners. Completely free!</div>
+      <div class="ad-wave"><div></div><div></div><div></div><div></div><div></div></div>
+      <div class="ad-waveform"><div class="ad-waveform-fill" id="ad-wave-fill"></div></div>
+      <a class="ad-cta" href="https://edutweakss.neocities.org" target="_blank" rel="noopener">
+        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+        Visit EduTweakss
+      </a>
+    </div>
+    <div class="ad-footer">
+      <span>Ad · <a href="https://edutweakss.neocities.org" target="_blank" style="color:var(--acc);text-decoration:none">edutweakss.neocities.org</a></span>
+      <button class="ad-skip-btn" id="ad-skip-btn" onclick="skipAd()" disabled>Skip in <span id="ad-skip-count">15</span>s</button>
+    </div>
+  </div>
+</div>
+<audio id="ad-audio"></audio>
 </body>
 </html>
